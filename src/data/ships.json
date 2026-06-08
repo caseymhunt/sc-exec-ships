@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Guardian MX Wikelo War Special",
+    "manufacturer": "Mirai",
+    "image": "https://i.imgur.com/ZYHR608.png",
+    "variants": [
+      {
+        "label": "Wikelo War Special",
+        "erkulUrl": "https://www.erkul.games/loadout/Qks1NbK9"
+      }
+    ]
+  },
+  {
+    "name": "Meteor PYAM Exec",
+    "manufacturer": "RSI",
+    "image": "https://i.ytimg.com/vi/goHDHIeINUE/maxresdefault.jpg",
+    "variants": [
+      {
+        "label": "Military",
+        "erkulUrl": "https://www.erkul.games/loadout/m40j5QFS"
+      }
+    ]
+  },
+  {
+    "name": "Scorpius Wikelo Sneak Special",
+    "manufacturer": "RSI",
+    "image": "https://i.imgur.com/uDqYU5O.jpeg",
+    "variants": [
+      {
+        "label": "Wikelo Sneak Special",
+        "erkulUrl": "https://www.erkul.games/loadout/vVieATE0"
+      }
+    ]
+  },
+  {
+    "name": "Anvil F7A Hornet Mk II PYAM Exec",
+    "manufacturer": "Anvil Aerospace",
+    "image": "https://sc-exechang.vercel.app/assets/f7a-mk2-O9DYpOTw.webp",
+    "variants": [
+      {
+        "label": "Stealth",
+        "erkulUrl": ""
+      },
+      {
+        "label": "Military",
+        "erkulUrl": ""
+      }
+    ]
+  },
+  {
+    "name": "Anvil F8C Lightning PYAM Exec",
+    "manufacturer": "Anvil Aerospace",
+    "image": "https://sc-exechang.vercel.app/assets/f8c-DiErhlSY.webp",
+    "variants": [
+      {
+        "label": "Stealth",
+        "erkulUrl": ""
+      },
+      {
+        "label": "Military",
+        "erkulUrl": "https://www.erkul.games/loadout/KLoAkp4O"
+      }
+    ]
+  },
+  {
+    "name": "Drake Corsair PYAM Exec",
+    "manufacturer": "Drake Interplanetary",
+    "image": "https://sc-exechang.vercel.app/assets/corsair-jxoDJe0t.webp",
+    "variants": [
+      {
+        "label": "Stealth",
+        "erkulUrl": ""
+      },
+      {
+        "label": "Military",
+        "erkulUrl": "https://www.erkul.games/loadout/aUR0Hmie"
+      }
+    ]
+  },
+  {
+    "name": "Drake Cutlass Black PYAM Exec",
+    "manufacturer": "Drake Interplanetary",
+    "image": "https://sc-exechang.vercel.app/assets/cutlass-black-Bc9zkzgL.webp",
+    "variants": [
+      {
+        "label": "Stealth",
+        "erkulUrl": ""
+      },
+      {
+        "label": "Military",
+        "erkulUrl": ""
+      }
+    ]
+  },
+  {
+    "name": "Gatac Syulen PYAM Exec",
+    "manufacturer": "Gatac Manufacture",
+    "image": "https://sc-exechang.vercel.app/assets/syulen-BxBk8Ebm.webp",
+    "variants": [
+      {
+        "label": "Stealth",
+        "erkulUrl": "https://www.erkul.games/loadout/qDp90aj1"
+      },
+      {
+        "label": "Military",
+        "erkulUrl": ""
+      }
+    ]
+  }
+]

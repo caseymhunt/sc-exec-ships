@@ -1,0 +1,128 @@
+---
+import ShipCard from '../components/ShipCard.astro';
+import ships from '../data/ships.json';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Exec Hangar Ships — Star Citizen Reference</title>
+    <meta name="description" content="Complete catalog of Star Citizen Exec Hangar Ships with loadout links." />
+  </head>
+  <body>
+    <header>
+      <h1>Exec Hangar Ships</h1>
+      <p class="subtitle">Star Citizen reference — full catalog with loadouts via <a href="https://www.erkul.games" target="_blank" rel="noopener noreferrer">Erkul.games</a></p>
+    </header>
+
+    <main>
+      <div class="ship-grid">
+        {ships.map((ship) => (
+          <ShipCard
+            name={ship.name}
+            manufacturer={ship.manufacturer}
+            image={ship.image}
+            variants={ship.variants}
+          />
+        ))}
+      </div>
+    </main>
+
+    <footer>
+      <p>Loadout data via <a href="https://www.erkul.games" target="_blank" rel="noopener noreferrer">erkul.games</a>. Not affiliated with Cloud Imperium Games.</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg: #0a0e14;
+    --surface: #0d1117;
+    --border: #2a3a4a;
+    --text: #c9d6e3;
+    --text-muted: #7a8a9a;
+    --accent: #4a8cb8;
+    --accent-light: #6aacde;
+  }
+
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #e6edf3;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .subtitle a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .subtitle a:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .ship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  footer {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>

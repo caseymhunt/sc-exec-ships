@@ -1,0 +1,138 @@
+---
+interface Variant {
+  label: string;
+  erkulUrl: string;
+}
+
+interface Props {
+  name: string;
+  manufacturer: string;
+  image: string;
+  variants: Variant[];
+}
+
+const { name, manufacturer, image, variants } = Astro.props;
+---
+
+<article class="ship-card">
+  <img src={image} alt={name} class="ship-image" />
+  <div class="ship-body">
+    <div class="ship-header">
+      <h2 class="ship-name">{name}</h2>
+      <span class="manufacturer">{manufacturer}</span>
+    </div>
+
+    <div class="variants">
+      {variants.map((variant) => (
+        variant.erkulUrl ? (
+          <a href={variant.erkulUrl} target="_blank" rel="noopener noreferrer" class="variant-link">
+            <span class="variant-label">{variant.label}</span>
+            <span class="view-loadout">View Loadout ↗</span>
+          </a>
+        ) : (
+          <div class="variant-link is-tbd">
+            <span class="variant-label">{variant.label}</span>
+            <span class="tbd">Loadout TBD</span>
+          </div>
+        )
+      ))}
+    </div>
+  </div>
+</article>
+
+<style>
+  .ship-card {
+    background: #0d1117;
+    border: 1px solid #2a3a4a;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease;
+  }
+
+  .ship-card:hover {
+    border-color: #4a8cb8;
+  }
+
+  .ship-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ship-body {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    flex: 1;
+  }
+
+  .ship-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .ship-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e6edf3;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .manufacturer {
+    font-size: 0.78rem;
+    color: #7a8a9a;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .variants {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .variant-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: #141c26;
+    border: 1px solid #2a3a4a;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.12s ease, border-color 0.12s ease;
+  }
+
+  .variant-link:hover:not(.is-tbd) {
+    background: #1a2740;
+    border-color: #4a8cb8;
+  }
+
+  .is-tbd {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .variant-label {
+    font-size: 0.875rem;
+    color: #c9d6e3;
+    font-weight: 500;
+  }
+
+  .tbd {
+    font-size: 0.78rem;
+    color: #7a8a9a;
+    font-style: italic;
+  }
+
+  .view-loadout {
+    font-size: 0.78rem;
+    color: #4a8cb8;
+  }
+</style>
