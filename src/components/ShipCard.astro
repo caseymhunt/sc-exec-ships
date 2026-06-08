@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Variant {
   label: string;
   erkulUrl: string;
@@ -12,6 +14,12 @@ interface Props {
 }
 
 const { name, manufacturer, image, variants } = Astro.props;
+
+// Local images (downloaded by the issue workflow) are stored as bare filenames in ships.json.
+// Remote URLs (imgur, etc.) pass through as-is with a plain <img> tag.
+const isLocalImage = !image.startsWith('http');
+const localImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/ships/*', { eager: true });
+const localSrc = isLocalImage ? localImages[`/src/assets/ships/${image}`]?.default : null;
 
 const imageIssueTitle = encodeURIComponent(`Image Submission: ${name}`);
 const imageIssueBody = encodeURIComponent(
@@ -47,7 +55,10 @@ function loadoutIssueUrl(variantLabel: string) {
 
 <article class="ship-card">
   <div class="image-wrap">
-    <img src={image} alt={name} class="ship-image" />
+    {isLocalImage && localSrc
+      ? <Image src={localSrc} alt={name} class="ship-image" widths={[400, 800]} sizes="(max-width: 600px) 400px, 800px" />
+      : <img src={image} alt={name} class="ship-image" />
+    }
     <div class="image-overlay"></div>
     <span class="manufacturer-badge">{manufacturer}</span>
     <a href={imageIssueUrl} target="_blank" rel="noopener noreferrer" class="img-cta" title="Submit an image">

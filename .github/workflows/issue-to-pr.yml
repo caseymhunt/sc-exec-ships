@@ -1,0 +1,36 @@
+name: Issue → PR
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  process:
+    # Only fire for submissions from our CTAs (title is pre-filled by the issue URL)
+    if: startsWith(github.event.issue.title, 'Image Submission:') || startsWith(github.event.issue.title, 'Loadout Submission:')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Configure git
+        run: |
+          git config user.name "sc-exec-ships-bot"
+          git config user.email "bot@users.noreply.github.com"
+
+      - name: Process issue and open PR
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          REPO: ${{ github.repository }}
+        run: node .github/scripts/process-issue.mjs
