@@ -20,7 +20,16 @@ All ship data lives in [`src/data/ships.json`](src/data/ships.json). Each entry 
 
 - Ships with a single loadout have one entry in `variants`.
 - Ships with two loadouts use `"Stealth"` and `"Military"` as labels.
-- Leave `erkulUrl` as an empty string if the loadout isn't available yet — the site will show a **Loadout TBD** indicator.
+- Leave `erkulUrl` as an empty string if the loadout isn't available yet — the site will show a **Submit Loadout** CTA linking to a pre-filled GitHub issue.
+
+## Contributing
+
+Each ship card has two contribution pathways built in:
+
+- **⬆ image button** (appears on hover, top-right of card image) — opens a pre-filled GitHub issue to submit a better image
+- **SUBMIT LOADOUT ↗** (shown on variants without a loadout link) — opens a pre-filled GitHub issue to contribute an erkul.games URL
+
+For general issues or suggestions, open an issue directly on the [GitHub repository](https://github.com/caseymhunt/sc-exec-ships/issues).
 
 ## Local development
 
@@ -30,6 +39,8 @@ npm run dev
 ```
 
 The site will be available at `http://localhost:4321`. Changes to `ships.json` hot-reload automatically.
+
+> **WSL2 note:** File watching uses polling (`usePolling: true`) to work across the Windows filesystem boundary.
 
 ## Deployment
 

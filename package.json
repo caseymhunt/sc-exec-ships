@@ -12,6 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/exo-2": "^5.2.8",
+    "@fontsource/orbitron": "^5.2.8",
     "astro": "^6.4.4"
   }
 }
